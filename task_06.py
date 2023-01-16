@@ -1,18 +1,18 @@
 def rps_game_winner(lst):
     # P, S, R = 'бумага', 'ножницы', 'камень'
 
-    def NoSuchStrategyError():
+    def StrategyError():
         if (lst[0][1] and lst[1][1] != 'P') and (lst[0][1] and lst[1][1] != 'S') \
                 and (lst[0][1] and lst[1][1] != 'R'):
             raise Exception('NoSuchStrategyError')
 
-    NoSuchStrategyError()
+    StrategyError()
 
-    def WrongNumberOfPlayersError():
+    def PlayersError():
         if len(lst) > 2:
             raise Exception('WrongNumberOfPlayersError')
 
-    WrongNumberOfPlayersError()
+    PlayersError()
 
     if lst[0][1] == lst[1][1]:
         return ' '.join(lst[0])
@@ -24,16 +24,3 @@ def rps_game_winner(lst):
         return ' '.join(lst[0])
     else:
         return ' '.join(lst[1])
-
-
-# print(rps_game_winner([['player1', 'P'], ['player2', 'S'], ['player3', 'S']]))
-# # => WrongNumberOfPlayersError
-
-# print(rps_game_winner([['player1', 'P'], ['player2', 'A']]))
-# # => NoSuchStrategyError
-
-print(rps_game_winner([['player1', 'P'], ['player2', 'S']]))
-# => 'player2 S'
-
-print(rps_game_winner([['player1', 'P'], ['player2', 'P']]))
-# => 'player1 P'
